@@ -1,4 +1,15 @@
 <?php
+function register_user($register_data) {
+	array_walk($register_data, 'array_sanitize');
+	$register_data['password'] = md5($register_data['password']);
+	
+	
+	$fields = '`' . implode('`, `', array_keys($register_data)) . '`';
+	$data = '\'' . implode('\', \'', $register_data) . '\'';
+	
+	mysql_query("INSERT INTO `user` ($fields) VALUES ($data)");
+}
+
 function user_count() {
 	return mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `active` = 1"), 0);
 }
@@ -24,8 +35,13 @@ function logged_in() {
 	return (isset($_SESSION['user_id'])) ? true : false;
 }
 function user_exists($username) {
-	$username = sanitize($username);
+	$email = sanitize($username);
 	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `username` = '$username'"), 0) == 1) ? true : false;
+}
+
+function email_exists($email) {
+	$username = sanitize($email);
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email'"), 0) == 1) ? true : false;
 }
 
 function user_active($username) {
