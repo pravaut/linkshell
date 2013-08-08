@@ -6,7 +6,9 @@
 <?php include 'includes/side.php'; ?>
 
 <div class="right pad-box2">
-    <h2>Home</h2>	    	
+    <h2>new page template</h2>
+    
+    all your page content goes here.	    	
     
 </div>
 <br style="clear:both;">

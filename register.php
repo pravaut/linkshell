@@ -1,4 +1,6 @@
-<?php include 'includes/overall/overall_header.php'; 
+<?php
+include 'includes/overall/overall_header.php'; 
+logged_in_redirect();
 if (empty($_POST) === false) {
 	$required_fields = array('username', 'password', 'password_again', 'first_name', 'email');
 	foreach($_POST as $key=>$value) {

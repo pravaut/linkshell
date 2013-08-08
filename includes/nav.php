@@ -2,7 +2,7 @@
    	   <nav class="nav">
         <a class="btn_portal roundleft" href="index.php">Home</a>
         <span class="navspacer"></span>
-        <a class="btn_database roundright" href="">menu</a>
+        <a class="btn_database roundright" href="downloads.php">Downloads</a>
         <span class="navspacer"></span>
         <a class="btn_characters roundleft" href="">menu</a>
         <span class="navspacer"></span>
