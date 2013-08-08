@@ -1,4 +1,16 @@
 <?php
+function activate($email, $email_code) {
+    $email      = mysql_real_escape_string($email);
+    $email_code = mysql_real_escape_string($email_code);
+
+    if (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `user` WHERE `email` = '$email' AND `email_code` = '$email_code' AND `active` = 0"), 0) == 1) {
+        mysql_query("UPDATE `user` SET `active` = 1 WHERE `email` = '$email'");
+        return true;
+    }else {
+        return false;
+    }
+}    
+
 function change_password($user_id, $password) {
     $user_id = (int)$user_id;
     $password = md5($password);
@@ -16,6 +28,7 @@ function register_user($register_data) {
 	$data = '\'' . implode('\', \'', $register_data) . '\'';
 	
 	mysql_query("INSERT INTO `user` ($fields) VALUES ($data)");
+    email($register_data['email'], 'Activate your account', "Hello " . $register_data['first_name'] . ",\n\nYou need to activate your account, so use the link below:\n\nhttp://shadow-guard.co.uk/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n- shadow guard");
 }
 
 function user_count() {

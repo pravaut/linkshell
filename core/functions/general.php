@@ -1,4 +1,8 @@
 <?php 
+function email($to, $subject, $body){
+    mail($to, $subject, $body, 'From: noreply@shadow-guard.co.uk');
+}
+
 function logged_in_redirect() {
     if (logged_in() === true){
         header('Location:index.php');
