@@ -16,9 +16,26 @@
                  <span class="split"></span>
                  
             
-			<a href="login.php">Login</a>
+			<a class="button" href="#">Login</a>
             <span class="split"></span>
-            
+            <div class="popup">
+                <a href="#" class="close">close</a>
+                <form action="login.php" method="post">
+			<ul id="login">
+				<li>
+					Username:<br>
+					<input type="text" name="username">
+				</li>
+				<li>
+					Password:<br>
+					<input type="password" name="password">
+				</li>
+				<li>
+					<input type="submit" value="log in">
+				</li>
+			</ul>
+		</form>
+            </div>
             </div>
             </div>
             </div>
