@@ -28,7 +28,7 @@ function register_user($register_data) {
 	$data = '\'' . implode('\', \'', $register_data) . '\'';
 	
 	mysql_query("INSERT INTO `user` ($fields) VALUES ($data)");
-    email($register_data['email'], 'Activate your account', "Hello " . $register_data['first_name'] . ",\n\nYou need to activate your account, so use the link below:\n\nhttp://shadow-guard.co.uk/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n-shadow guard");
+    email($register_data['email'], 'Activate your account', "Hello " . $register_data['first_name'] . ",\n\nYou need to activate your account, so use the link below:\n\nhttp://test.shadow-guard.co.uk/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n-shadow guard");
 }
 
 function user_count() {
