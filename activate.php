@@ -11,7 +11,7 @@ logged_in_redirect();
 <div class="right pad-box2">	    	
 
 <?php
-if (isset($_GET['success']) === TRUE && empty($_GET['success']) === true) {
+if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
 ?>
     <h2>Thanks we have activated your account...</h2>
     <p>you are free to log in!</p>
@@ -29,7 +29,7 @@ if (isset($_GET['success']) === TRUE && empty($_GET['success']) === true) {
         
     }
 
-    if (empty($errors) == false) {
+    if (empty($errors) === false) {
         ?>
             <h2>Oops...</h2>
     <?php
